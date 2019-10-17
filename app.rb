@@ -13,27 +13,29 @@ puts "#                                               #"
 puts "#################################################" 
 end 
 
-def ask_name
-
-
-return name_player1
-end
-
-def ask_name2
-
-return name_player2
-end
-
 def perform
 welcome_message
-#name_player1 = ask_name
-#name_player2 = ask_name2
+puts " "
+puts " "
 jeu = Game.new
+puts " "
 puts "êtes vous prêt ?? "
 puts " "
 puts "------- Appuyez sur Entrée pour commencer ----------"
 puts " " 
-gets.chomp 
+gets.chomp
+puts " "
+puts " Choisis une des valeurs suivantes A1, A2, A3, B1, B2, B3, C1, C2 et C3 tel que :"
+puts " "
+puts " "
+puts "      A1 | A2 | A3     "
+puts "      ___ ____ ___"
+puts " "
+puts "      B1 | B2 | B3     "
+puts "      ___ ____ ___"
+puts " "
+puts "      C1 | C2 | C3     "
+puts "  " 
 jeu.round
 play_again?
 end
