@@ -3,7 +3,7 @@ require_relative 'board'
 #require_relative 'boardcase'
 require_relative 'player'
 
-class Game
+class Game < Board
 
 attr_accessor :players #:game_number
 
@@ -31,6 +31,7 @@ attr_accessor :players #:game_number
       i=i+1
       z=z+1
       p @boardgame
+      victory? 
         if i==2
           i=0
         end
@@ -40,8 +41,65 @@ attr_accessor :players #:game_number
   end
 
    
+    #
+    # a1 a2 a3
+    # b1 b2 b3
+    # c1 c2 c3
+    #
+    # victoire si 
+    # A1 A2 A3  0 1 2
+    # B1 B2 B3  3 4 5
+    # C1 C2 C3  6 7 8
+    # A3 B2 C1  2 4 6
+    # A1 B2 C3  0 4 8
+    # A2 B2 C2  1 4 7 
+    # A1 B1 C1  0 3 8 
+    # A3 B3 C3  2 5 8 
+
+    def victory?
+
+      if @boardgame.cases[0].state == @boardgame.cases[1].state && @boardgame.cases[0].state == @boardgame.cases[2].state && @boardgame.cases[0].state == "X" && @boardgame.cases[0].state != ""   
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[3].state == @boardgame.cases[4].state && @boardgame.cases[4].state == @boardgame.cases[5].state && @boardgame.cases[4].state == "X" && @boardgame.cases[4].state != "" 
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[6].state == @boardgame.cases[7].state && @boardgame.cases[8].state == @boardgame.cases[7].state && @boardgame.cases[7].state == "X" && @boardgame.cases[7].state != ""
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[2].state == @boardgame.cases[4].state && @boardgame.cases[6].state == @boardgame.cases[4].state && @boardgame.cases[4].state == "X" && @boardgame.cases[4].state != ""
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[0].state == @boardgame.cases[4].state && @boardgame.cases[8].state == @boardgame.cases[4].state && @boardgame.cases[8].state == "X" && @boardgame.cases[8].state != ""
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[1].state == @boardgame.cases[4].state && @boardgame.cases[4].state == @boardgame.cases[7].state && @boardgame.cases[4].state == "X" && @boardgame.cases[4].state != ""
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[0].state == @boardgame.cases[3].state && @boardgame.cases[3].state == @boardgame.cases[8].state && @boardgame.cases[8].state == "X" && @boardgame.cases[8].state != ""
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[2].state == @boardgame.cases[5].state && @boardgame.cases[8].state == @boardgame.cases[2].state && @boardgame.cases[5].state == "X" && @boardgame.cases[5].state != ""
+        puts "You win, #{@players[0].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      
+      
+      
+      
+      elsif @boardgame.cases[0].state == @boardgame.cases[1].state && @boardgame.cases[0].state == @boardgame.cases[2].state && @boardgame.cases[0].state == "O" && @boardgame.cases[0].state != ""   
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[3].state == @boardgame.cases[4].state && @boardgame.cases[4].state == @boardgame.cases[5].state && @boardgame.cases[4].state == "O" && @boardgame.cases[4].state != "" 
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[6].state == @boardgame.cases[7].state && @boardgame.cases[8].state == @boardgame.cases[7].state && @boardgame.cases[7].state == "O" && @boardgame.cases[7].state != ""
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[2].state == @boardgame.cases[4].state && @boardgame.cases[6].state == @boardgame.cases[4].state && @boardgame.cases[4].state == "O" && @boardgame.cases[4].state != ""
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[0].state == @boardgame.cases[4].state && @boardgame.cases[8].state == @boardgame.cases[4].state && @boardgame.cases[8].state == "O" && @boardgame.cases[8].state != ""
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[1].state == @boardgame.cases[4].state && @boardgame.cases[4].state == @boardgame.cases[7].state && @boardgame.cases[4].state == "O" && @boardgame.cases[4].state != ""
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[0].state == @boardgame.cases[3].state && @boardgame.cases[3].state == @boardgame.cases[8].state && @boardgame.cases[8].state == "O" && @boardgame.cases[8].state != ""
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      elsif @boardgame.cases[2].state == @boardgame.cases[5].state && @boardgame.cases[8].state == @boardgame.cases[2].state && @boardgame.cases[5].state == "O" && @boardgame.cases[5].state != ""
+        puts "You win, #{@players[1].name} !!!!!!!!!!!! Congratulations !!!!!!!!!!!!!!!!!!!!"
+      
+      end
+    end
+  
 end
 
-
+binding.pry
 jeu =Game.new
 jeu.round

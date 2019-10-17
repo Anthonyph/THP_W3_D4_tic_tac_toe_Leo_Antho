@@ -7,7 +7,7 @@ class Board
 attr_accessor :cases, :game_turn #nombre de coup joué
 @@case_position = []
 @@case_index = []
-@@hash_tictactoe = {}
+@@hash_index = {}
 
     def initialize(board_name)
 
@@ -43,6 +43,11 @@ attr_accessor :cases, :game_turn #nombre de coup joué
     return @game_turn
     end
     
+
+
+
+
+
 #################### test #############
     def find_case
       index=find_index(input_position)
