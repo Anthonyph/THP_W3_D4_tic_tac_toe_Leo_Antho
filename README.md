@@ -1,5 +1,7 @@
 <h2>1. Introduction</h2>
 
+<P> salut correcteur j'ai pas eu le temps de push le bon repo suite a un beug ! peux tu aller sur ce lien ?? Certifié avant minuit ! https://github.com/leovanel/repo_W3_D4_tictactoe_leo_antho_v2 merci !!!>
+
 <p> ce repo appartient à Leo Vanel et Anthony Phimphachanh, voici les consignes <p>
 
 <p>Rien de tel que de coder un jeu pour solidifier ses bases en POO ! Nous allons donc créer un <a href="https://fr.wikipedia.org/wiki/Tic-tac-toe?oldformat=true" target="_blank">jeu de morpion</a>, jeu hautement stratégique et follement passionnant s'il en est. </p>
